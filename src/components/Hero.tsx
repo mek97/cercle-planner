@@ -54,7 +54,6 @@ export function Hero({ picksCount }: Props) {
         This time they stayed home.
         <span className="text-[var(--color-ink)] not-italic font-[var(--font-sans)] font-medium">
           {" "}Three days. Three space-themed stages. Forty-two sets. Forty-four artists.
-          Sold out — but you're here anyway.
         </span>
       </motion.p>
 
