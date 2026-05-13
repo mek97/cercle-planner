@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Cercle Festival 2026">
+  <rect width="64" height="64" rx="14" fill="#06050d"/>
+  <circle cx="32" cy="32" r="22" fill="none" stroke="#ff5d8a" stroke-width="4"/>
+  <path d="M32 10a22 22 0 0 1 19.1 11.1" fill="none" stroke="#ffb86b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M51.1 42.9A22 22 0 0 1 32 54" fill="none" stroke="#b18cff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="7" fill="#4dd2ff"/>
+</svg>

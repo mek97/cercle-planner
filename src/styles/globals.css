@@ -1,0 +1,357 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Cercle Planner — Tailwind v4 theme & tokens
+   Brand colors (day accents + genres) stay constant across themes.
+   Neutrals flip via [data-theme="light"] override.
+   ============================================================ */
+@theme {
+  /* ── canvas (defaults = dark) ── */
+  --color-bg-0: #06050d;
+  --color-bg-1: #0c0b18;
+  --color-bg-2: #131124;
+  --color-bg-3: #1c1934;
+
+  /* ── ink ── */
+  --color-ink: #faf6ec;
+  --color-ink-dim: #cdc6b8;
+  --color-ink-mute: #7d7666;
+  --color-ink-faint: #4a443a;
+
+  /* ── lines ── */
+  --color-line: rgba(250, 246, 236, 0.06);
+  --color-line-strong: rgba(250, 246, 236, 0.14);
+  --color-line-bright: rgba(250, 246, 236, 0.26);
+
+  /* ── surface (cards, modals) ── */
+  --color-surface: rgba(255, 255, 255, 0.025);
+  --color-surface-strong: rgba(255, 255, 255, 0.045);
+
+  /* ── day accents · festival sunset ── */
+  --color-fri: #ffb86b;
+  --color-sat: #ff5d8a;
+  --color-sun: #b18cff;
+  --color-accent: #4dd2ff;
+  --color-gold: #ffd166;
+
+  /* ── genre palette ── */
+  --color-g-techno: #ff3b66;
+  --color-g-melodic: #c084fc;
+  --color-g-house: #ffd166;
+  --color-g-deep: #38d4ff;
+  --color-g-organic: #9ce37d;
+  --color-g-downtempo: #5eead4;
+  --color-g-progressive: #ff8fb1;
+  --color-g-electronica: #8b91ff;
+  --color-g-bass: #ff9747;
+  --color-g-hardtechno: #ff2e63;
+  --color-g-frenchhouse: #ffb84d;
+
+  /* ── fonts ── */
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ============================================================
+   Light theme
+   ============================================================ */
+:root {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg-0: #f4f0e3;
+  --color-bg-1: #fdfbf4;
+  --color-bg-2: #ece8d8;
+  --color-bg-3: #ddd7c4;
+
+  /* Darker, warmer inks. Previous tones were grey-leaning and washed out
+     on cream — every level bumped so secondary text stays legible. */
+  --color-ink: #15111f;
+  --color-ink-dim: #2a2418;
+  --color-ink-mute: #524a36;
+  --color-ink-faint: #6b6452;
+
+  /* Visible borders. 0.08 was effectively invisible on cream. */
+  --color-line: rgba(24, 20, 35, 0.18);
+  --color-line-strong: rgba(24, 20, 35, 0.32);
+  --color-line-bright: rgba(24, 20, 35, 0.46);
+
+  --color-surface: rgba(255, 254, 248, 0.78);
+  --color-surface-strong: rgba(255, 255, 252, 0.95);
+
+  /* Toned-down brand palette in light mode — same hues, less neon, so the
+     vivid chart fills and day accents read as warm/saturated rather than
+     blowing out against cream. Mirrored in JS via useColors().LIGHT_BRAND. */
+  --color-fri: #d6852f;
+  --color-sat: #c93a64;
+  --color-sun: #7a5cd6;
+  --color-accent: #1e94c8;
+  --color-gold: #a8841f;
+
+  --color-g-techno: #c91f4b;
+  --color-g-melodic: #8a4dd6;
+  --color-g-house: #a8841f;
+  --color-g-deep: #1d8fbc;
+  --color-g-organic: #5fa84a;
+  --color-g-downtempo: #2da696;
+  --color-g-progressive: #c95a85;
+  --color-g-electronica: #5a64d4;
+  --color-g-bass: #cc6a1a;
+  --color-g-hardtechno: #c41848;
+  --color-g-frenchhouse: #c0851f;
+}
+
+/* Light mode chart polish — Recharts often emits its own inline fills on
+   <text>. Override at the global level so tick labels become legible
+   ink-dim instead of faded yellow/cream. */
+[data-theme="light"] .recharts-cartesian-axis-tick text,
+[data-theme="light"] .recharts-polar-angle-axis-tick text,
+[data-theme="light"] .recharts-polar-radius-axis-tick text,
+[data-theme="light"] .recharts-text:not(.recharts-label) {
+  fill: var(--color-ink-dim) !important;
+}
+[data-theme="light"] .recharts-cartesian-axis-line,
+[data-theme="light"] .recharts-cartesian-grid-horizontal line,
+[data-theme="light"] .recharts-cartesian-grid-vertical line,
+[data-theme="light"] .recharts-polar-grid-angle line,
+[data-theme="light"] .recharts-polar-grid-concentric-circle {
+  stroke: var(--color-line-strong) !important;
+  stroke-opacity: 0.7;
+}
+
+/* Visual desaturation for chart bodies in light mode. A lot of charts read
+   colors directly from DAY_ACCENT/GENRES (hardcoded hex), so the muted
+   light-mode brand palette in useColors() doesn't reach them. A modest
+   saturate() backstop keeps bright neon fills from screaming on cream.
+   Text fills are dark/low-saturation already, so they're barely affected.
+   Applied via the .chart-tint class on ChartCard so it scopes to chart
+   surfaces only (not the whole page). */
+[data-theme="light"] .chart-tint {
+  filter: saturate(0.78) brightness(0.96);
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg-0);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11";
+  overscroll-behavior-y: none;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  /* belt-and-braces: prevent any rogue element from blowing out the viewport */
+  max-width: 100vw;
+}
+
+html { overflow-x: clip; }
+body { min-height: 100vh; overflow-x: clip; }
+
+*, *::before, *::after { box-sizing: border-box; }
+img, svg, video, canvas, iframe { max-width: 100%; }
+
+/* Long unbreakable strings (e.g. URLs in notes) shouldn't push layout wider */
+.surface, [class*="rounded-2xl"], [class*="rounded-3xl"] { word-wrap: break-word; overflow-wrap: anywhere; }
+
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+
+::selection { background: var(--color-sat); color: #0a0810; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-line-strong); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-line-bright); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   Premium backdrop — soft orbs + dot mesh
+   ============================================================ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.backdrop .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  opacity: 0.42;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+[data-theme="light"] .backdrop .orb {
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  filter: blur(160px);
+}
+.backdrop .mesh {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at center, var(--color-line-strong) 1px, transparent 1.2px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+  opacity: 0.55;
+}
+[data-theme="light"] .backdrop .mesh {
+  opacity: 0.7;
+}
+.backdrop .vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 100% 80% at 50% 100%,
+    transparent 40%,
+    color-mix(in srgb, var(--color-bg-0) 75%, transparent) 80%,
+    var(--color-bg-0) 100%);
+}
+
+/* ============================================================
+   Reusable utility classes
+   ============================================================ */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--color-ink-mute);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--color-ink-mute);
+}
+
+.display-h1 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(52px, 9vw, 140px);
+  line-height: 0.94;
+  letter-spacing: -0.038em;
+}
+.display-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(38px, 5.2vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+}
+.display-em {
+  font-style: italic;
+  font-weight: 500;
+  background: linear-gradient(115deg, var(--color-fri) 0%, var(--color-sat) 45%, var(--color-sun) 90%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Italic terminals lean right past the natural text bounding box, and
+     italic descenders (p, y, g) drop below the baseline. Combined with
+     `background-clip: text` and the headline's negative letter-spacing,
+     glyph edges in words like "perfect" / "lineup" / "keeps going" were
+     getting clipped. Extend the render box on the right AND bottom so
+     every glyph stroke is fully drawn. Negative margins compensate so
+     surrounding layout is largely unchanged. */
+  display: inline-block;
+  padding-right: 0.18em;
+  margin-right: -0.04em;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.12em;
+  line-height: inherit;
+}
+
+.mono-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--color-ink-mute);
+  text-transform: uppercase;
+}
+
+/* fanbase dots reused everywhere */
+.fb-dots { display: inline-flex; gap: 3px; align-items: center; }
+.fb-dots i {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-line-strong);
+  display: inline-block;
+}
+.fb-dots i.on {
+  background: var(--dot-color, var(--color-ink-dim));
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* genre chip color via inline --gc */
+.genre-pill {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--gc, white) 16%, transparent);
+  color: var(--gc, var(--color-ink-dim));
+  border: 1px solid color-mix(in srgb, var(--gc, var(--color-ink)) 28%, transparent);
+}
+/* In light mode the same hue at 16% on cream washes out — bump the tint
+   and darken the text so the pill reads as a confident chip. */
+[data-theme="light"] .genre-pill {
+  background: color-mix(in srgb, var(--gc, white) 14%, white);
+  color: color-mix(in srgb, var(--gc, var(--color-ink-dim)) 88%, black);
+  border: 1px solid color-mix(in srgb, var(--gc, var(--color-ink)) 42%, transparent);
+}
+
+/* premium card surface — used by every section card */
+.surface {
+  background: linear-gradient(180deg, var(--color-surface-strong) 0%, var(--color-surface) 100%);
+  border: 1px solid var(--color-line);
+}
+[data-theme="light"] .surface {
+  background: linear-gradient(180deg, var(--color-surface-strong) 0%, var(--color-surface) 100%);
+  border: 1px solid var(--color-line-strong);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.7) inset, 0 1px 3px rgba(24, 20, 35, 0.06);
+}
+
+/* Light mode card overlays — translate the dark-mode "subtle white tint"
+   pattern (bg-white/[0.0X]) into a subtle ink tint, so cards register as
+   distinct surfaces against the cream backdrop instead of disappearing. */
+[data-theme="light"] [class*="bg-white/\\[0\\.02\\]"],
+[data-theme="light"] .bg-white\/\[0\.02\] { background-color: rgba(24, 20, 35, 0.025) !important; }
+[data-theme="light"] .bg-white\/\[0\.03\] { background-color: rgba(24, 20, 35, 0.035) !important; }
+[data-theme="light"] .bg-white\/\[0\.04\] { background-color: rgba(24, 20, 35, 0.045) !important; }
+[data-theme="light"] .bg-white\/\[0\.05\] { background-color: rgba(24, 20, 35, 0.055) !important; }
+[data-theme="light"] .bg-white\/\[0\.06\] { background-color: rgba(24, 20, 35, 0.07) !important; }
+[data-theme="light"] .bg-white\/\[0\.08\] { background-color: rgba(24, 20, 35, 0.09) !important; }
+
+/* The pulse keyframe uses hardcoded rose; in light mode keep the same hue
+   but slightly stronger so the live-dot reads against cream. */
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(24, 20, 35, 0.22); }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: rgba(24, 20, 35, 0.35); }

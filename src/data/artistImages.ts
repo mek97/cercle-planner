@@ -1,0 +1,51 @@
+// Spotify oEmbed thumbnail URLs (no auth required; persistent on Spotify CDN).
+// Sourced from /artist-images.json — generated via offline fetch.
+
+export const ARTIST_IMAGES: Record<string, string> = {
+  "acid-pauli":       "https://image-cdn-ak.spotifycdn.com/image/ab676161000051749f16e00351c87751c08204fb",
+  "adriatique":       "https://image-cdn-ak.spotifycdn.com/image/ab676161000051742f77c08232851bd6820c1398",
+  "anna":             "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174ec05b67af6a023fb22b9c01f",
+  "arodes":           "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517419b4f4016d144c4b13b3e058",
+  "berlioz":          "https://image-cdn-fa.spotifycdn.com/image/ab676161000051743a9ab7733c4e6f95251a806b",
+  "carlita":          "https://image-cdn-ak.spotifycdn.com/image/ab676161000051746da48dad7f35739a168ddc16",
+  "enfant-sauvage":   "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174cbefd4e8b3fcf1b37a11d5e7",
+  "kerri-chandler":   "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174a8acffcb0f02a43a54c77f40",
+  "kilimanjaro":      "https://image-cdn-fa.spotifycdn.com/image/ab6761610000517406452f0619d6b832bce71fcd",
+  "marten-lou":       "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174973d5456d874142c2404a853",
+  "mind-against":     "https://image-cdn-ak.spotifycdn.com/image/ab676161000051742f886bd1377fbbeb4e7a67fa",
+  "rodrigo-gallardo": "https://image-cdn-fa.spotifycdn.com/image/ab6761610000517402e585a8fb469b5e70ec48f6",
+  "sammy-virji":      "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517443c436dd4582521e601f8099",
+  "anfisa-letyago":   "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174348da04d6efecefe16b43721",
+  "artbat":           "https://image-cdn-ak.spotifycdn.com/image/ab676161000051742634ca41d16e9ba796dc96cb",
+  "etienne":          "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174f52225ec56b3c7fbe43a2a8f",
+  "ginton":           "https://image-cdn-ak.spotifycdn.com/image/ab676161000051743861638bf4321c1d86ef8e34",
+  "jimi-jules":       "https://image-cdn-fa.spotifycdn.com/image/ab676161000051745dd37b1778b335e200690cc7",
+  "kasablanca":       "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174b248b567cbef8c9d2b77b02c",
+  "kenya-grace":      "https://image-cdn-ak.spotifycdn.com/image/ab676161000051744a4bef984ec5f2eecd12f843",
+  "kolsch":           "https://image-cdn-fa.spotifycdn.com/image/ab67616100005174a50059967122d0f2609b2e82",
+  "lane8":            "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517476d679823655e84fe5ca9bd6",
+  "lp-dj-tennis":     "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517475007ae77d7d942496df5af7",
+  "michael-bibi":     "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174749961fd71fc6d3cd0b487d2",
+  "monolink":         "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174389781a67e7454ca4c1601bc",
+  "parra":            "https://image-cdn-fa.spotifycdn.com/image/ab676161000051745d29ef2a3bb075d68947aa74",
+  "vintage-culture":  "https://image-cdn-fa.spotifycdn.com/image/ab676161000051740041f76b2e740b535b6919a3",
+  "aaron-hibell":     "https://image-cdn-fa.spotifycdn.com/image/ab676161000051748394db8b5f4d26b3e2632162",
+  "ame-sama":         "https://image-cdn-ak.spotifycdn.com/image/ab676161000051748b8b283de7e152cc5fd8cd47",
+  "anetha":           "https://image-cdn-fa.spotifycdn.com/image/ab67616100005174097a0dde7fc487e54c2394e2",
+  "ben-bohmer":       "https://image-cdn-fa.spotifycdn.com/image/ab676161000051749424d1542392a0d8ff82620e",
+  "deer-jade":        "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174bc312efb21d82d38ad17c42e",
+  "eric-prydz":       "https://image-cdn-ak.spotifycdn.com/image/ab676161000051744170f1e4c72c0a9fc2eddc1d",
+  "funk-tribu":       "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517403d24f1203d1e67917a2737a",
+  "mahmut-orhan":     "https://image-cdn-ak.spotifycdn.com/image/ab676161000051749981d0fb9b0cfa3ac351be78",
+  "meera":            "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174b33dece6f5b25c7b8aeb9074",
+  "miss-monique":     "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174b8028862eeb5ccaf303d71ce",
+  "nimino":           "https://image-cdn-ak.spotifycdn.com/image/ab676161000051743972d2fa4086a30bdc814e64",
+  "royksopp":         "https://image-cdn-fa.spotifycdn.com/image/ab676161000051746bc3053447db6b61f3fe444c",
+  "thylacine":        "https://image-cdn-ak.spotifycdn.com/image/ab67616100005174015dda37ad30a5a5ba10becd",
+  "weval":            "https://image-cdn-fa.spotifycdn.com/image/ab67616100005174ebc22c0d21b0e64239896eb6",
+  "yotto":            "https://image-cdn-ak.spotifycdn.com/image/ab6761610000517459637fd7dbb6f078545d08da",
+};
+
+export function imageFor(id: string): string | undefined {
+  return ARTIST_IMAGES[id];
+}

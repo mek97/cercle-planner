@@ -1,0 +1,59 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# build output
+dist/
+dist-ssr/
+*.tsbuildinfo
+*.local
+
+# editor / OS
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.idea/
+.vscode/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env
+.env
+.env.local
+.env.*.local
+
+# claude / agent transcripts
+.claude/
+.playwright-mcp/
+test-results/
+playwright-report/
+
+# scratch screenshots & audit artefacts from the iterative build
+audit-*.jpeg
+audit-*.png
+mobile-*.png
+light-*.png
+pills*.png
+hero-*.png
+spark*.png
+vibemap.png
+heatmap*.png
+profile-card*.png
+.skill-artifacts/
+
+# intermediate research artefacts kept locally — not needed in the public repo
+artist-images.json
+research-*.json
+spotify-ids*.json
+schedule.json
+legacy/
+
+*.local
