@@ -1,3 +1,5 @@
+import { Star } from "lucide-react";
+
 export function Footer() {
   return (
     <footer className="relative z-10 max-w-[1280px] mx-auto mt-16 px-6 md:px-10 py-10 border-t border-[var(--color-line)] flex flex-col md:flex-row justify-between items-start gap-6 font-mono text-xs tracking-[0.04em] text-[var(--color-ink-mute)]">
@@ -25,16 +27,19 @@ export function Footer() {
             official site
           </a>{" "}over us.
         </div>
-        <div className="text-[var(--color-ink-faint)] text-[11px] uppercase tracking-[0.06em] inline-flex items-center gap-2 md:justify-end flex-wrap">
-          <span>Zero tracking · your picks live in your browser, not ours</span>
+        <div className="text-[var(--color-ink-faint)] text-[11px] uppercase tracking-[0.06em]">
+          Zero tracking · your picks live in your browser, not ours.
+        </div>
+        <div className="pt-1.5 md:flex md:justify-end">
           <a
             href="https://github.com/mek97/cercle-planner"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View source on GitHub"
-            className="inline-flex items-center text-[var(--color-ink-faint)] hover:text-[var(--color-ink-dim)] transition-colors"
+            className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--color-line)] text-[var(--color-ink-faint)] hover:text-[var(--color-ink-dim)] hover:border-[var(--color-line-strong)] hover:bg-white/[0.03] transition-all"
           >
             <GithubMark />
+            <span className="text-[10.5px] tracking-[0.16em] uppercase">Star on GitHub</span>
+            <Star className="w-3 h-3 group-hover:fill-[var(--color-sun)] group-hover:text-[var(--color-sun)] transition-colors" />
           </a>
         </div>
       </div>
