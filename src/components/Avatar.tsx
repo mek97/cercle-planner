@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Artist } from "@/data/types";
 import { DAY_ACCENT } from "@/data/genres";
 import { imageFor } from "@/data/artistImages";
@@ -27,9 +27,17 @@ export function Avatar({ artist, size = 44, className, rounded = true }: Props) 
   const url = imageFor(artist.id);
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [allowRemoteImage, setAllowRemoteImage] = useState(true);
   const accent = DAY_ACCENT[artist.day];
 
-  const showImage = url && !failed;
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    const isWebKitPhone = /iPhone|iPod/.test(ua) && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+    const isNarrow = window.matchMedia("(max-width: 430px)").matches;
+    setAllowRemoteImage(!(isWebKitPhone && isNarrow));
+  }, []);
+
+  const showImage = allowRemoteImage && url && !failed;
   const ini = initials(artist.name);
 
   return (

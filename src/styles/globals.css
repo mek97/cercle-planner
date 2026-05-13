@@ -225,9 +225,13 @@ img, svg { display: block; max-width: 100%; }
     radial-gradient(circle at center, var(--color-line-strong) 1px, transparent 1.2px);
   background-size: 28px 28px;
   background-position: 0 0;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
   opacity: 0.55;
+}
+@supports ((mask-image: radial-gradient(black, transparent)) or (-webkit-mask-image: radial-gradient(black, transparent))) {
+  .backdrop .mesh {
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+  }
 }
 [data-theme="light"] .backdrop .mesh {
   opacity: 0.7;
