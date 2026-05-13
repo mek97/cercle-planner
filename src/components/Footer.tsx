@@ -26,7 +26,15 @@ export function Footer() {
           </a>{" "}over us.
         </div>
         <div className="text-[var(--color-ink-faint)] text-[11px] uppercase tracking-[0.06em]">
-          Zero tracking · your picks live in your browser, not ours.
+          Zero tracking · your picks live in your browser, not ours ·{" "}
+          <a
+            href="https://github.com/mek97/cercle-planner"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--color-ink-dim)] underline-offset-2 hover:underline"
+          >
+            view source
+          </a>
         </div>
       </div>
     </footer>
