@@ -26,7 +26,17 @@ export function Footer() {
           </a>{" "}over us.
         </div>
         <div className="text-[var(--color-ink-faint)] text-[11px] uppercase tracking-[0.06em] inline-flex items-center gap-2 md:justify-end flex-wrap">
-          <span>Zero tracking · your picks live in your browser, not ours</span>
+          <span>
+            Zero tracking · your picks live in your browser, not ours ·{" "}
+            <a
+              href="https://github.com/mek97/cercle-planner/blob/main/PRIVACY.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--color-ink-dim)] underline-offset-2 hover:underline"
+            >
+              Privacy
+            </a>
+          </span>
           <a
             href="https://github.com/mek97/cercle-planner"
             target="_blank"
