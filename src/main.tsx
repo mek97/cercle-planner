@@ -28,3 +28,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     </ThemeProvider>
   </React.StrictMode>
 );
+
+window.requestAnimationFrame(() => {
+  const loader = document.getElementById("boot-loader");
+  if (!loader) return;
+  loader.classList.add("boot-loader--hide");
+  window.setTimeout(() => loader.remove(), 220);
+});
