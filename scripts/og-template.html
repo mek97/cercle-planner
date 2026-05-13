@@ -1,0 +1,255 @@
+<!doctype html>
+<!--
+  Source of truth for public/og.png — the social-card preview that platforms
+  scrape via the og:image meta tag. To regenerate:
+
+    npm run og
+
+  (Defined in package.json; uses headless Chrome to screenshot this file at
+  1200x630.)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      :root {
+        --fri: #ff8a5b;
+        --sat: #ff5d8a;
+        --sun: #b18cff;
+        --acc: #4dd2ff;
+        --ink: #faf6ec;
+        --dim: rgba(250, 246, 236, 0.72);
+        --mute: rgba(250, 246, 236, 0.5);
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 1200px;
+        height: 630px;
+        background: #06050d;
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow: hidden;
+      }
+
+      .card {
+        position: relative;
+        width: 1200px;
+        height: 630px;
+        padding: 72px 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(20px);
+        opacity: 0.55;
+        pointer-events: none;
+      }
+      .orb-1 {
+        width: 760px; height: 760px;
+        top: -260px; left: -200px;
+        background: radial-gradient(circle, #9b6fff 0%, transparent 60%);
+      }
+      .orb-2 {
+        width: 700px; height: 700px;
+        top: 120px; right: -240px;
+        background: radial-gradient(circle, #ff4d7d 0%, transparent 60%);
+      }
+      .orb-3 {
+        width: 540px; height: 540px;
+        bottom: -220px; left: 40%;
+        background: radial-gradient(circle, #3ec5ff 0%, transparent 60%);
+        opacity: 0.35;
+      }
+
+      .mesh {
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.08) 1px, transparent 1.2px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+        -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 35%, rgba(0,0,0,0.7), transparent 75%);
+        opacity: 0.5;
+      }
+
+      .row {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .mark {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        background: conic-gradient(from 180deg, #ffb86b, #ff5d8a, #b18cff, #4dd2ff, #ffb86b);
+        box-shadow:
+          0 0 28px rgba(255, 93, 138, 0.5),
+          0 0 56px rgba(177, 140, 255, 0.28);
+      }
+
+      .brand {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 18px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+
+      .dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 999px;
+        background: var(--mute);
+      }
+
+      h1 {
+        position: relative;
+        z-index: 2;
+        margin: 0;
+        font-size: 116px;
+        line-height: 0.96;
+        letter-spacing: -0.035em;
+        font-weight: 500;
+        font-family: "New York", "Times New Roman", "Iowan Old Style", Georgia, serif;
+      }
+
+      h1 em {
+        font-style: italic;
+        background: linear-gradient(120deg, #ff8a5b 0%, #ff5d8a 40%, #b18cff 75%, #4dd2ff 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 500;
+      }
+
+      .subtitle {
+        position: relative;
+        z-index: 2;
+        font-size: 22px;
+        line-height: 1.4;
+        color: var(--dim);
+        max-width: 760px;
+        margin-top: 16px;
+        font-style: italic;
+        font-family: "New York", "Times New Roman", "Iowan Old Style", Georgia, serif;
+      }
+
+      .footer-row {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 48px;
+      }
+
+      .stats {
+        display: flex;
+        gap: 48px;
+      }
+
+      .stat {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .stat-num {
+        font-family: "New York", "Times New Roman", "Iowan Old Style", Georgia, serif;
+        font-size: 56px;
+        line-height: 1;
+        letter-spacing: -0.022em;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .stat-lbl {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--mute);
+      }
+
+      .badge {
+        align-self: flex-end;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.04);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--dim);
+      }
+      .badge .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: var(--sat);
+        box-shadow: 0 0 14px rgba(255, 93, 138, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="mesh"></div>
+
+      <div class="row">
+        <div class="mark"></div>
+        <span class="brand">Cercle &middot; 26</span>
+        <span class="dot"></span>
+        <span class="brand">Fan-made planner</span>
+      </div>
+
+      <div>
+        <h1>Plan your <em>perfect</em><br />weekend.</h1>
+        <p class="subtitle">
+          Cercle Festival 2026 &middot; Paris &middot; May 22&ndash;24.
+          Vibe quiz, full timetable, Spotify previews, shareable picks.
+        </p>
+      </div>
+
+      <div class="footer-row">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num">44</div>
+            <div class="stat-lbl">artists</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">42</div>
+            <div class="stat-lbl">sets</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">days</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">stages</div>
+          </div>
+        </div>
+        <div class="badge">
+          <span class="pulse"></span>
+          May 22&ndash;24, 2026
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
