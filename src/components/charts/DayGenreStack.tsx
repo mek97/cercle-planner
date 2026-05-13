@@ -33,7 +33,7 @@ export function DayGenreStack() {
             <XAxis type="number" hide />
             <YAxis
               type="category" dataKey="day"
-              tick={{ ...tick, fontFamily: "Inter", fontSize: 12, fill: C.inkDim }}
+              tick={{ ...tick, fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif", fontSize: 12, fill: C.inkDim }}
               axisLine={false} tickLine={false} width={70}
             />
             <Tooltip
@@ -50,7 +50,7 @@ export function DayGenreStack() {
               />
             ))}
             <Legend
-              wrapperStyle={{ paddingTop: 10, fontSize: 10, fontFamily: "JetBrains Mono, monospace", letterSpacing: "0.08em", color: C.inkDim }}
+              wrapperStyle={{ paddingTop: 10, fontSize: 10, fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", letterSpacing: "0.08em", color: C.inkDim }}
               iconType="square"
               formatter={(v: string) => GENRES[v as GenreKey]?.label || v}
             />

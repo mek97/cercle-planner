@@ -119,7 +119,7 @@ export function VibeMap({ picks, onOpen }: Props) {
             <g key={`xt-${v}`}>
               <line x1={px} y1={padT + innerH} x2={px} y2={padT + innerH + 5} stroke={C.inkMute} strokeWidth={1} />
               <text x={px} y={padT + innerH + 20} textAnchor="middle"
-                fontFamily="JetBrains Mono, monospace" fontSize={10} fill={C.inkMute}>{v}</text>
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={10} fill={C.inkMute}>{v}</text>
             </g>
           );
         })}
@@ -129,18 +129,18 @@ export function VibeMap({ picks, onOpen }: Props) {
             <g key={`yt-${v}`}>
               <line x1={padL - 5} y1={py} x2={padL} y2={py} stroke={C.inkMute} strokeWidth={1} />
               <text x={padL - 10} y={py + 3} textAnchor="end"
-                fontFamily="JetBrains Mono, monospace" fontSize={10} fill={C.inkMute}>{v}</text>
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={10} fill={C.inkMute}>{v}</text>
             </g>
           );
         })}
 
         <text x={padL + innerW / 2} y={H - 8} textAnchor="middle"
-          fontFamily="JetBrains Mono, monospace" fontSize={11} letterSpacing="0.18em" fill={C.inkDim}>
+          fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={11} letterSpacing="0.18em" fill={C.inkDim}>
           {AXIS_LABEL[x].toUpperCase()} →
         </text>
         <text transform={`rotate(-90 14 ${padT + innerH / 2})`}
           x={14} y={padT + innerH / 2 + 3} textAnchor="middle"
-          fontFamily="JetBrains Mono, monospace" fontSize={11} letterSpacing="0.18em" fill={C.inkDim}>
+          fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={11} letterSpacing="0.18em" fill={C.inkDim}>
           {AXIS_LABEL[y].toUpperCase()} →
         </text>
 
@@ -175,12 +175,12 @@ export function VibeMap({ picks, onOpen }: Props) {
           return (
             <g pointerEvents="none">
               <text x={p.px} y={ty} textAnchor="middle"
-                fontFamily="Fraunces, serif" fontSize={17} fontWeight={500}
+                fontFamily="Georgia, serif" fontSize={17} fontWeight={500}
                 fill={C.ink} stroke={C.bg0} strokeWidth={4} paintOrder="stroke">
                 {p.a.name}
               </text>
               <text x={p.px} y={ty + 14} textAnchor="middle"
-                fontFamily="JetBrains Mono, monospace" fontSize={10}
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={10}
                 fill={C.inkDim} stroke={C.bg0} strokeWidth={3} paintOrder="stroke">
                 {DAY_LABEL[p.a.day]} · {p.a.details.listeners}
               </text>

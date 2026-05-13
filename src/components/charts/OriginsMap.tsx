@@ -97,7 +97,7 @@ export function OriginsMap({ picks, onOpen }: Props) {
                 );
               })}
               <text x={cx} y={cy + 22} textAnchor="middle"
-                fontFamily="JetBrains Mono, monospace" fontSize={9}
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={9}
                 fill={C.inkMute} letterSpacing="0.08em">{country.toUpperCase()}</text>
             </g>
           );

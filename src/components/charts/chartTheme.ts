@@ -7,7 +7,7 @@ export function useChartTheme() {
     C,
     tick: {
       fill: C.inkMute,
-      fontFamily: "JetBrains Mono, monospace",
+      fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
       fontSize: 10,
       letterSpacing: "0.06em",
     },
@@ -18,7 +18,7 @@ export function useChartTheme() {
       border: `1px solid ${C.lineStrong}`,
       borderRadius: 10,
       padding: "10px 12px",
-      fontFamily: "JetBrains Mono, monospace",
+      fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
       fontSize: 11,
       letterSpacing: "0.04em",
       color: C.ink,

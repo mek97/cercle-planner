@@ -60,7 +60,7 @@ export function StreamsVsCercle({ onOpen }: Props) {
                 const p = payload[0].payload as any;
                 return (
                   <div style={tooltipStyle}>
-                    <div style={{ fontFamily: "Fraunces, serif", fontSize: 15, fontWeight: 500, color: C.ink, marginBottom: 4 }}>
+                    <div style={{ fontFamily: "Georgia, serif", fontSize: 15, fontWeight: 500, color: C.ink, marginBottom: 4 }}>
                       {p.name}
                     </div>
                     <div style={{ color: C.inkDim }}>

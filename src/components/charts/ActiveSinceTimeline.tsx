@@ -49,7 +49,7 @@ export function ActiveSinceTimeline({ onOpen }: Props) {
             <g key={y}>
               <line x1={px} y1={padT + innerH} x2={px} y2={padT + innerH + 6} stroke={C.inkMute} strokeWidth={1} />
               <text x={px} y={padT + innerH + 22} textAnchor="middle"
-                fontFamily="JetBrains Mono, monospace" fontSize={11}
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={11}
                 fill={y % 10 === 0 ? C.inkDim : C.inkMute}
                 letterSpacing="0.06em">{y}</text>
             </g>
@@ -81,12 +81,12 @@ export function ActiveSinceTimeline({ onOpen }: Props) {
           return (
             <g pointerEvents="none">
               <text x={px} y={36} textAnchor="middle"
-                fontFamily="Fraunces, serif" fontSize={17} fontWeight={500}
+                fontFamily="Georgia, serif" fontSize={17} fontWeight={500}
                 fill={C.ink} stroke={C.bg0} strokeWidth={4} paintOrder="stroke">
                 {t.a.name}
               </text>
               <text x={px} y={50} textAnchor="middle"
-                fontFamily="JetBrains Mono, monospace" fontSize={10}
+                fontFamily="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" fontSize={10}
                 fill={C.inkDim} stroke={C.bg0} strokeWidth={3} paintOrder="stroke">
                 since {t.year} · {DAY_LABEL[t.a.day]}
               </text>

@@ -127,7 +127,7 @@ export function QuizProfileCard() {
                 <PolarGrid stroke={C.lineStrong} strokeOpacity={0.5} />
                 <PolarAngleAxis
                   dataKey="axis"
-                  tick={{ fill: C.inkDim, fontFamily: "JetBrains Mono, monospace", fontSize: 9, letterSpacing: "0.1em" }}
+                  tick={{ fill: C.inkDim, fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace", fontSize: 9, letterSpacing: "0.1em" }}
                   tickFormatter={(v: string) => v.toUpperCase()}
                 />
                 <Radar

@@ -45,7 +45,7 @@ export function LabelLeaderboard() {
             <XAxis type="number" hide />
             <YAxis
               type="category" dataKey="name" width={140}
-              tick={{ ...tick, fontFamily: "Inter", fontSize: 11.5, fill: C.inkDim }}
+              tick={{ ...tick, fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif", fontSize: 11.5, fill: C.inkDim }}
               axisLine={false} tickLine={false}
             />
             <Tooltip
@@ -58,7 +58,7 @@ export function LabelLeaderboard() {
               isAnimationActive animationDuration={650}
               label={{
                 position: "right", offset: 6, fill: C.inkDim,
-                fontSize: 10, fontFamily: "JetBrains Mono, monospace",
+                fontSize: 10, fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
               }}
             >
               {data.map((_, i) => <Cell key={i} fill="url(#lbl-grad)" fillOpacity={0.92} />)}
