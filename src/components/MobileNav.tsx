@@ -57,7 +57,9 @@ export function MobileNav() {
               className="lg:hidden fixed top-0 right-0 bottom-0 z-[81] w-[84%] max-w-[320px] border-l border-[var(--color-line-strong)] p-6 flex flex-col gap-1 overflow-y-auto shadow-[-20px_0_60px_rgba(0,0,0,0.4)]"
               style={{
                 background: "linear-gradient(180deg, var(--color-bg-2) 0%, var(--color-bg-1) 100%)",
-                height: "100vh",
+                height: "100svh",
+                maxHeight: "100dvh",
+                paddingBottom: "calc(1.5rem + env(safe-area-inset-bottom, 0px))",
               }}
             >
               <div className="flex items-center justify-between mb-6">
