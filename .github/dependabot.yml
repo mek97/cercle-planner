@@ -1,0 +1,36 @@
+ # .github/dependabot.yml
+  version: 2
+  updates:
+    # NPM — bundle minor+patch into one PR/month so it's a single review.
+    # Majors come as separate PRs because they're real changes worth weighing.
+    - package-ecosystem: "npm"
+      directory: "/"
+      schedule:
+        interval: "monthly"
+      open-pull-requests-limit: 5
+      commit-message:
+        prefix: "deps"
+      groups:
+        minor-and-patch:
+          update-types:
+            - "minor"
+            - "patch"
+      ignore:
+        # React 19 -> 20 majors are a rewrite; pin and review manually if/when.
+        - dependency-name: "react"
+          update-types: ["version-update:semver-major"]
+        - dependency-name: "react-dom"
+          update-types: ["version-update:semver-major"]
+
+    # GitHub Actions — fixes the Node 20 deprecation warning you saw on deploy.
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+        interval: "monthly"
+      open-pull-requests-limit: 3
+      commit-message:
+        prefix: "ci"
+      groups:
+        actions:
+          patterns:
+            - "*"
