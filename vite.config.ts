@@ -13,7 +13,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base,
   server: { port: 4321, open: true },
-  build: { target: "es2022", outDir: "dist" },
+  build: { target: ["es2019", "safari13"], outDir: "dist" },
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },
   },
