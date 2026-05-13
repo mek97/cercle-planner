@@ -31,10 +31,8 @@ export function Avatar({ artist, size = 44, className, rounded = true }: Props) 
   const accent = DAY_ACCENT[artist.day];
 
   useEffect(() => {
-    const ua = navigator.userAgent;
-    const isWebKitPhone = /iPhone|iPod/.test(ua) && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
-    const isNarrow = window.matchMedia("(max-width: 430px)").matches;
-    setAllowRemoteImage(!(isWebKitPhone && isNarrow));
+    const isPhoneWidth = window.matchMedia("(max-width: 767px)").matches;
+    setAllowRemoteImage(!isPhoneWidth);
   }, []);
 
   const showImage = allowRemoteImage && url && !failed;
