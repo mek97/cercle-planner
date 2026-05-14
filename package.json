@@ -4,6 +4,16 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Personal interactive planner for Cercle Festival 2026 — Paris, May 22–24",
+  "license": "MIT",
+  "author": "Mehul",
+  "homepage": "https://github.com/mek97/cercle-planner#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mek97/cercle-planner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mek97/cercle-planner/issues"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
