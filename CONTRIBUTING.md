@@ -9,6 +9,7 @@ what to expect from the review process.
 ## Ground rules
 
 - **Be kind.** Assume good intent. Keep discussion focused on the code.
+  Full text in [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 - **No tracking, no accounts, no backend.** The app is a static site that
   stores picks in `localStorage`. Changes that would add analytics, telemetry,
   remote logging, or any outbound network call beyond what's listed in
@@ -90,5 +91,5 @@ Don't open a public issue for security problems. See
 
 ## License
 
-By contributing you agree that your contribution will be released under the
-same terms as the rest of the repository.
+The source is [MIT-licensed](LICENSE). By contributing, you agree that your
+contribution will be released under the same license.

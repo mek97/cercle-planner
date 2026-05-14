@@ -73,3 +73,17 @@ Raw research dumps that produced `data/artists.ts` live at the repo root:
 
 These were compiled from Spotify, Resident Advisor, Wikipedia, kworb.net stream counts,
 Cercle's official YouTube channel, and festival profiles.
+
+## Project docs
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — setup, branch/PR conventions, scope
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — how we behave in issues/PRs
+- [SECURITY.md](SECURITY.md) — how to report vulnerabilities privately
+- [PRIVACY.md](PRIVACY.md) — what the app stores and what it doesn't
+- [LICENSE](LICENSE) — MIT for the source code (third-party artist/audio
+  content remains the property of its owners)
+
+## License
+
+[MIT](LICENSE). Fan-made; not affiliated with Cercle, the festival, or any
+artist.

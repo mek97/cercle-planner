@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest an idea or improvement.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the **use case** before the implementation — it's easier
+        to discuss the goal than a specific design.
+
+        Reminder: this is a planner for Cercle Festival 2026 specifically.
+        Generic festival features are out of scope. No backends, accounts,
+        or tracking — see [PRIVACY.md](../PRIVACY.md).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      placeholder: As a fan planning my weekend, I want to … because …
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: How might this work? Sketches, mockups, and rough ideas are welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches you thought about and why you ruled them out.
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+      description: Links, references, related issues.
