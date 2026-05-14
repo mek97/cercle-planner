@@ -37,7 +37,7 @@ const DialogContent = React.forwardRef<
         "fixed left-1/2 top-1/2 z-50 grid w-[calc(100vw-16px)] sm:w-[calc(100vw-32px)] -translate-x-1/2 -translate-y-1/2 gap-0",
         "max-w-[780px] max-h-[calc(100vh-16px)] max-h-[calc(100svh-16px)] sm:max-h-[calc(100vh-80px)] sm:max-h-[calc(100svh-80px)] overflow-y-auto",
         "rounded-2xl sm:rounded-3xl border border-[var(--color-line-strong)]",
-        "bg-gradient-to-b from-[#15122a] to-[#0c0b1d]",
+        "bg-gradient-to-b from-[var(--color-bg-2)] to-[var(--color-bg-1)]",
         "shadow-[0_40px_100px_rgba(0,0,0,0.55)]",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
@@ -49,7 +49,7 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute top-4 right-5 w-9 h-9 rounded-full bg-white/[0.04] border border-[var(--color-line)] text-[var(--color-ink-dim)] text-xl leading-none flex items-center justify-center hover:bg-white/10 hover:text-[var(--color-ink)] hover:rotate-90 transition-all z-10">
+      <DialogPrimitive.Close className="absolute top-4 right-5 w-9 h-9 rounded-full bg-white/[0.04] border border-[var(--color-line)] text-[var(--color-ink-dim)] text-xl leading-none flex items-center justify-center hover:bg-white/[0.08] hover:text-[var(--color-ink)] hover:rotate-90 transition-all z-10">
         <X className="w-4 h-4" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>

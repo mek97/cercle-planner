@@ -68,7 +68,7 @@ function ArtistDetail({ artist, picked, onToggle }: { artist: Artist; picked: bo
 
       {spotifyIds.length > 0 && (
         <section className="mt-8 mb-2 relative">
-          <span className="absolute -top-2.5 left-3.5 px-2.5 bg-[#0c0b1d] font-mono text-[9.5px] tracking-[0.18em] text-[var(--color-ink-mute)] uppercase z-10">
+          <span className="absolute -top-2.5 left-3.5 px-2.5 bg-[var(--color-bg-1)] font-mono text-[9.5px] tracking-[0.18em] text-[var(--color-ink-mute)] uppercase z-10">
             Listen on Spotify
           </span>
           <div className="flex flex-col gap-3">
